@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/*
+  Sweet Layers Cake Co. — Brand Theme (Tailwind CSS v4)
+
+  Tailwind v4 is configured in CSS (no tailwind.config file).
+  Everything below generates utilities automatically:
+    colors   -> bg-cream-50, text-espresso-800, ring-rose-200, ...
+    fonts    -> font-sans, font-serif, font-script
+    shadows  -> shadow-soft, shadow-card, shadow-lift
+
+  Values are mirrored in src/lib/design-tokens.ts — keep both in sync.
+*/
+@theme inline {
+  /* Warm cream / off-white backgrounds */
+  --color-cream-50: #fdfaf4;
+  --color-cream-100: #f8f0e5;
+  --color-cream-200: #f1e3d0;
+  --color-cream-300: #e6d2b8;
+
+  /* Rich espresso brown (text + dark surfaces) */
+  --color-espresso-400: #7d6857;
+  --color-espresso-500: #7d604f;
+  --color-espresso-600: #63493a;
+  --color-espresso-700: #4c362a;
+  --color-espresso-800: #3a281d;
+  --color-espresso-900: #2b1c12;
+  --color-espresso-950: #201409;
+
+  /* Dusty rose / berry accent */
+  --color-rose-100: #f9ecec;
+  --color-rose-200: #f2d8d9;
+  --color-rose-300: #e5b9bc;
+  --color-rose-400: #d4959c;
+  --color-rose-500: #c07380;
+  --color-rose-600: #a55a69;
+  --color-rose-700: #894654;
+
+  /* Soft gold highlight (CTAs) */
+  --color-gold-100: #fbf1dd;
+  --color-gold-200: #f6e2bb;
+  --color-gold-300: #efcd92;
+  --color-gold-400: #e7b76c;
+  --color-gold-500: #dca24c;
+  --color-gold-600: #c58735;
+
+  /*
+    Typography — variables come from next/font in src/app/layout.tsx.
+    font-script is reserved for the logo and hero tagline ONLY.
+  */
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-script: var(--font-great-vibes), cursive;
+
+  /* Soft, appetizing elevation — light, never heavy */
+  --shadow-soft: 0 2px 12px rgb(43 28 18 / 0.06);
+  --shadow-card: 0 10px 30px -6px rgb(43 28 18 / 0.1);
+  --shadow-lift: 0 20px 45px -12px rgb(43 28 18 / 0.16);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-50 font-sans text-base leading-relaxed text-espresso-800 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-semibold tracking-tight text-espresso-900;
+  }
+
+  ::selection {
+    background-color: var(--color-rose-200);
+    color: var(--color-espresso-900);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Hard kill-switch for CSS-driven motion site-wide.
+     framer-motion is handled separately via <MotionConfig reducedMotion="user" />. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Draw-in underline for inline text links — grows from the left on hover. */
+.link-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-position: left calc(100% - 0.05em);
+  background-repeat: no-repeat;
+  transition: background-size 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-draw:hover,
+.link-draw:focus-visible {
+  background-size: 100% 1.5px;
+}
