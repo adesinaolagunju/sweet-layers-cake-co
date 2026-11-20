@@ -148,10 +148,11 @@ export function Header() {
                 href="/custom-order"
                 size="sm"
                 aria-current={pathname === "/custom-order" ? "page" : undefined}
-                className="hidden whitespace-nowrap px-4 sm:inline-flex sm:px-5"
+                className="hidden whitespace-nowrap sm:inline-flex sm:h-9 sm:px-3 sm:text-xs lg:h-11 lg:px-5 lg:text-sm"
               >
-                Order a Cake
-                <ArrowUpRight className="size-4" aria-hidden />
+                <span className="lg:hidden">Order</span>
+                <span className="hidden lg:inline">Order a Cake</span>
+                <ArrowUpRight className="hidden size-4 lg:block" aria-hidden />
               </ButtonLink>
 
               <button
