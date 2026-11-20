@@ -1,3 +1,0 @@
-module.exports=[21216,a=>{"use strict";var b=a.i(1609),c=a.i(67126),d=a.i(72131);a.s(["useReducedMotion",0,function(){b.hasReducedMotionListener.current||(0,c.initPrefersReducedMotion)();let[a]=(0,d.useState)(b.prefersReducedMotion.current);return a}])},53172,a=>{"use strict";var b=a.i(87924),c=a.i(46271),d=a.i(21216),e=a.i(48734);a.s(["default",0,function({children:a}){return(0,d.useReducedMotion)()?(0,b.jsx)(b.Fragment,{children:a}):(0,b.jsx)(c.motion.div,{initial:{opacity:0,y:14},animate:{opacity:1,y:0},transition:{duration:e.DURATION.base,ease:e.EASE_OUT},children:a})}])}];
-
-//# sourceMappingURL=_0sxs1ev._.js.map
